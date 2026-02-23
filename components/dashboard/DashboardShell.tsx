@@ -32,7 +32,7 @@ export default function DashboardShell({ children, role }: DashboardShellProps) 
             />
 
             <main className="flex-1 p-4 md:p-8 pt-20 md:pt-8 overflow-y-auto">
-                <div className="max-w-7xl mx-auto">
+                <div className="max-w-7xl mx-auto h-full flex flex-col">
                     {children}
                 </div>
             </main>
