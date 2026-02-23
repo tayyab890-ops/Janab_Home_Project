@@ -11,7 +11,7 @@ const areas = [
 
 export default function ServiceAreas() {
     return (
-        <section className="py-24 bg-primary text-white relative overflow-hidden">
+        <section className="py-16 md:py-24 bg-primary text-white relative overflow-hidden">
             {/* Decorative Map Pattern */}
             <div className="absolute inset-0 opacity-10 pointer-events-none">
                 <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -25,10 +25,10 @@ export default function ServiceAreas() {
             </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="flex flex-col md:flex-row justify-between items-center mb-16">
+                <div className="flex flex-col md:flex-row justify-between items-center mb-12 md:mb-16">
                     <div className="text-center md:text-left mb-8 md:mb-0">
                         <h2 className="text-3xl md:text-5xl font-bold mb-4">Areas We Serve</h2>
-                        <p className="text-primary-foreground/70 max-w-lg">
+                        <p className="text-primary-foreground/70 max-w-lg text-sm md:text-base">
                             We are expanding rapidly! Currently, we cover all major sectors of KTS and Haripur.
                         </p>
                     </div>

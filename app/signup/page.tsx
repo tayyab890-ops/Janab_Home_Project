@@ -110,16 +110,16 @@ export default function SignupPage() {
                     </div>
 
                     {/* Right Side - Form */}
-                    <div className="p-8 md:p-10">
-                        <div className="mb-8">
-                            <h1 className="text-3xl font-bold text-slate-800">Sign Up</h1>
+                    <div className="p-6 md:p-10 order-1 md:order-2">
+                        <div className="mb-6 md:mb-8 text-center md:text-left">
+                            <h1 className="text-2xl md:text-3xl font-bold text-slate-800">Sign Up</h1>
                             <p className="text-slate-500 text-sm mt-1">
                                 Already have an account? <Link href="/login" className="text-primary font-bold hover:underline">Login</Link>
                             </p>
                         </div>
 
                         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-                            <div className="grid grid-cols-2 gap-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <Input
                                     label="Full Name"
                                     placeholder="John Doe"
@@ -143,7 +143,7 @@ export default function SignupPage() {
                             />
 
                             <div className="space-y-2">
-                                <label className="text-sm font-semibold text-slate-700 ml-1">I want to join as a</label>
+                                <label className="text-sm font-semibold text-slate-700 ml-1 text-center md:text-left block">I want to join as a</label>
                                 <div className="grid grid-cols-2 gap-4">
                                     <label className="relative cursor-pointer group">
                                         <input
@@ -170,7 +170,7 @@ export default function SignupPage() {
                                 </div>
                             </div>
 
-                            <div className="grid grid-cols-2 gap-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <Input
                                     label="Password"
                                     placeholder="••••••"

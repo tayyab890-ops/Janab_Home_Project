@@ -66,11 +66,11 @@ export default function TrackPage() {
                 </div>
 
                 <div className="max-w-2xl mx-auto mb-16">
-                    <form onSubmit={handleSearch} className="flex gap-4">
+                    <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-4">
                         <div className="flex-1">
                             <Input
                                 label=""
-                                placeholder="Enter Tracking ID (e.g. JD-12345)"
+                                placeholder="Enter Tracking ID"
                                 value={trackingId}
                                 onChange={(e) => setTrackingId(e.target.value)}
                                 className="text-lg py-4"
@@ -80,10 +80,11 @@ export default function TrackPage() {
                             type="submit"
                             loading={loading}
                             size="lg"
-                            className="h-[58px] mt-2 shadow-lg shadow-primary/20"
+                            className="h-[58px] shadow-lg shadow-primary/20 w-full sm:w-auto mt-2 sm:mt-0"
                         >
                             {!loading && <Search size={24} />}
-                            <span className="hidden md:inline">Track</span>
+                            <span className="sm:hidden lg:inline">Track Order</span>
+                            <span className="hidden sm:inline lg:hidden">Track</span>
                         </Button>
                     </form>
                 </div>
@@ -93,14 +94,14 @@ export default function TrackPage() {
                         <motion.div
                             initial={{ opacity: 0, y: 40 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="grid lg:grid-cols-3 gap-12"
+                            className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12"
                         >
                             {/* Status & Details */}
-                            <div className="lg:col-span-1 space-y-8">
-                                <div className="bg-white p-8 rounded-[2rem] shadow-xl border border-slate-100">
-                                    <h3 className="font-bold text-xl mb-8">Delivery Status</h3>
+                            <div className="lg:col-span-1 space-y-6 md:space-y-8 order-2 lg:order-1">
+                                <div className="bg-white p-6 md:p-8 rounded-[2rem] shadow-xl border border-slate-100">
+                                    <h3 className="font-bold text-lg md:text-xl mb-6 md:mb-8">Delivery Status</h3>
 
-                                    <div className="space-y-10 relative">
+                                    <div className="space-y-8 md:space-y-10 relative">
                                         {/* Progress Line */}
                                         <div className="absolute left-[19px] top-2 bottom-2 w-0.5 bg-slate-100" />
 
@@ -115,10 +116,10 @@ export default function TrackPage() {
                                                         {s.icon}
                                                     </div>
                                                     <div>
-                                                        <p className={`font-bold ${isCompleted ? "text-slate-800" : "text-slate-400"}`}>
+                                                        <p className={`font-bold text-sm md:text-base ${isCompleted ? "text-slate-800" : "text-slate-400"}`}>
                                                             {s.label}
                                                         </p>
-                                                        {isCurrent && <p className="text-xs text-primary font-bold uppercase animate-pulse">In Progress</p>}
+                                                        {isCurrent && <p className="text-[10px] text-primary font-bold uppercase animate-pulse">In Progress</p>}
                                                     </div>
                                                 </div>
                                             );
@@ -127,45 +128,45 @@ export default function TrackPage() {
                                 </div>
 
                                 {order.rider ? (
-                                    <div className="bg-primary text-white p-8 rounded-[2rem] shadow-xl">
-                                        <h3 className="font-bold text-lg mb-6 flex items-center space-x-2">
+                                    <div className="bg-primary text-white p-6 md:p-8 rounded-[2rem] shadow-xl">
+                                        <h3 className="font-bold text-base md:text-lg mb-4 md:mb-6 flex items-center space-x-2">
                                             <Truck size={20} />
                                             <span>Rider Information</span>
                                         </h3>
                                         <div className="flex items-center space-x-4 mb-6">
-                                            <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center text-2xl font-bold">
+                                            <div className="w-12 h-12 md:w-14 md:h-14 bg-white/20 rounded-2xl flex items-center justify-center text-xl md:text-2xl font-bold">
                                                 {order.rider.name[0]}
                                             </div>
                                             <div>
-                                                <p className="font-bold text-lg">{order.rider.name}</p>
-                                                <p className="text-blue-200 text-sm">Active Now</p>
+                                                <p className="font-bold text-base md:text-lg">{order.rider.name}</p>
+                                                <p className="text-blue-200 text-xs md:text-sm">Active Now</p>
                                             </div>
                                         </div>
-                                        <Button variant="secondary" className="w-full">
+                                        <Button variant="secondary" className="w-full py-3">
                                             Call Rider
                                         </Button>
                                     </div>
                                 ) : (
-                                    <div className="bg-slate-100 text-slate-500 p-8 rounded-[2rem] text-center">
-                                        <p className="font-bold">No rider assigned yet</p>
-                                        <p className="text-sm">Rider will be assigned shortly.</p>
+                                    <div className="bg-slate-100 text-slate-500 p-6 md:p-8 rounded-[2rem] text-center">
+                                        <p className="font-bold text-sm">No rider assigned yet</p>
+                                        <p className="text-xs">Rider will be assigned shortly.</p>
                                     </div>
                                 )}
                             </div>
 
                             {/* Live Map */}
-                            <div className="lg:col-span-2 space-y-6">
-                                <div className="bg-white p-4 rounded-[2.5rem] shadow-xl border border-slate-100 overflow-hidden h-[500px] relative">
+                            <div className="lg:col-span-2 space-y-6 order-1 lg:order-2">
+                                <div className="bg-white p-3 md:p-4 rounded-[2rem] md:rounded-[2.5rem] shadow-xl border border-slate-100 overflow-hidden h-[300px] md:h-[500px] relative">
                                     <LiveMap order={order} />
-                                    <div className="absolute top-8 left-8 z-[1000] space-y-2">
-                                        <div className="bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-slate-100">
-                                            <p className="text-[10px] uppercase font-bold text-slate-400">Current Location</p>
-                                            <p className="font-bold text-slate-800">Heading towards {order.destination.name}</p>
+                                    <div className="absolute top-4 left-4 md:top-8 md:left-8 z-[1000] max-w-[80%] md:max-w-none">
+                                        <div className="bg-white/90 backdrop-blur-md p-3 md:p-4 rounded-xl md:rounded-2xl shadow-lg border border-slate-100">
+                                            <p className="text-[8px] md:text-[10px] uppercase font-bold text-slate-400">Current Location</p>
+                                            <p className="font-bold text-xs md:text-base text-slate-800 truncate">Heading towards {order.destination.name}</p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="grid md:grid-cols-2 gap-6">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                                     <LocationCard type="Pickup" name={order.origin.name} time="10:30 AM" color="blue" />
                                     <LocationCard type="Drop-off" name={order.destination.name} time="Estimated 11:15 AM" color="orange" />
                                 </div>

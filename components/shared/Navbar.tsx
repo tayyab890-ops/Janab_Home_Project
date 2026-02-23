@@ -39,34 +39,36 @@ export default function Navbar() {
                             whileHover={{ rotate: 15 }}
                             className="bg-primary p-2 rounded-lg"
                         >
-                            <Bike className="text-white h-6 w-6" />
+                            <Bike className="text-white h-5 w-5 md:h-6 md:w-6" />
                         </motion.div>
-                        <span className="text-xl font-bold text-primary">
+                        <span className="text-lg md:text-xl font-bold text-primary whitespace-nowrap">
                             Janab <span className="text-secondary">Delivery</span>
                         </span>
                     </Link>
 
                     {/* Desktop Links */}
-                    <div className="hidden md:flex items-center space-x-8">
+                    <div className="hidden md:flex items-center md:space-x-4 lg:space-x-8">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}
                                 href={link.href}
-                                className="text-foreground/80 hover:text-primary transition-colors font-medium"
+                                className="text-foreground/80 hover:text-primary transition-colors font-medium text-sm lg:text-base whitespace-nowrap"
                             >
                                 {link.name}
                             </Link>
                         ))}
-                        <Link href="/login">
-                            <Button variant="outline" size="sm" className="px-6 rounded-full">
-                                Login
-                            </Button>
-                        </Link>
-                        <Link href="/signup">
-                            <Button size="sm" className="px-6 rounded-full">
-                                Get Started
-                            </Button>
-                        </Link>
+                        <div className="flex items-center space-x-2 lg:space-x-4">
+                            <Link href="/login">
+                                <Button variant="outline" size="sm" className="px-4 lg:px-6 rounded-full text-xs lg:text-sm">
+                                    Login
+                                </Button>
+                            </Link>
+                            <Link href="/signup">
+                                <Button size="sm" className="px-4 lg:px-6 rounded-full text-xs lg:text-sm">
+                                    Get Started
+                                </Button>
+                            </Link>
+                        </div>
                     </div>
 
                     {/* Mobile Menu Button */}

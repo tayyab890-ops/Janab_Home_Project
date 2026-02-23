@@ -13,17 +13,16 @@ export default function Home() {
       <HowItWorks />
       <ServiceAreas />
 
-      {/* CTA Section */}
-      <section className="py-24">
+      <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-primary to-blue-900 rounded-[3rem] p-12 md:p-20 text-center text-white relative overflow-hidden shadow-2xl">
+          <div className="bg-gradient-to-r from-primary to-blue-900 rounded-[2rem] md:rounded-[3rem] p-8 md:p-20 text-center text-white relative overflow-hidden shadow-2xl">
             {/* Background Light */}
             <div className="absolute -top-24 -left-24 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
 
-            <h2 className="text-4xl md:text-6xl font-bold mb-8 relative z-10">
-              Ready to send your <br /> first parcel?
+            <h2 className="text-3xl md:text-6xl font-bold mb-6 md:mb-8 relative z-10">
+              Ready to send your <br className="hidden md:block" /> first parcel?
             </h2>
-            <p className="text-xl text-blue-100 mb-12 max-w-2xl mx-auto relative z-10">
+            <p className="text-base md:text-xl text-blue-100 mb-10 md:mb-12 max-w-2xl mx-auto relative z-10">
               Join thousands of happy customers in Haripur. Get started today and experience the future of local delivery.
             </p>
             <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 relative z-10">

@@ -1,4 +1,4 @@
-import DashboardSidebar from "@/components/dashboard/Sidebar";
+import DashboardShell from "@/components/dashboard/DashboardShell";
 import { getAuthSession } from "@/lib/auth";
 import { redirect } from "next/navigation";
 
@@ -14,11 +14,8 @@ export default async function DashboardLayout({
     }
 
     return (
-        <div className="flex bg-slate-50 min-h-screen pt-20">
-            <DashboardSidebar role={session.role.toLowerCase() as any} />
-            <main className="flex-1 p-8 overflow-y-auto">
-                {children}
-            </main>
-        </div>
+        <DashboardShell role={session.role.toLowerCase() as any}>
+            {children}
+        </DashboardShell>
     );
 }

@@ -44,13 +44,13 @@ const features = [
 
 export default function Features() {
     return (
-        <section className="py-24 bg-slate-50">
+        <section className="py-16 md:py-24 bg-slate-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
+                <div className="text-center mb-12 md:mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4">
                         Why Choose <span className="text-primary italic">Janab?</span>
                     </h2>
-                    <p className="text-slate-500 max-w-2xl mx-auto font-medium">
+                    <p className="text-slate-500 max-w-2xl mx-auto font-medium text-sm md:text-base">
                         We offer premium delivery services tailored for the local community with modern technology and reliability.
                     </p>
                 </div>
